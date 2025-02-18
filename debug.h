@@ -15,6 +15,9 @@
 ostream& operator<<(ostream& out, const vector<int>& v) {
     for(auto it : v)out << it <<" ";
     return out << endl;
+}ostream& operator<<(ostream& out, const vector<long long>& v) {
+    for(auto it : v)out << it <<" ";
+    return out << endl;
 }
 ostream& operator<<(ostream& out, const vector<double>& v) {
     for(auto it : v)out << it <<" ";
@@ -30,6 +33,9 @@ ostream& operator<<(ostream& out, const vector<string>& v) {
 ostream& operator<<(ostream& out, const set<int>& s) {
     for(auto it : s)out << it <<" ";
     return out << endl;
+}ostream& operator<<(ostream& out, const set<long long>& s) {
+    for(auto it : s)out << it <<" ";
+    return out << endl;
 }
 ostream& operator<<(ostream& out, const set<double>& s) {
     for(auto it : s)out << it <<" ";
@@ -43,6 +49,9 @@ ostream& operator<<(ostream& out, const set<string>& s) {
 
 //Multiset
 ostream& operator<<(ostream& out, const multiset<int>& s) {
+    for(auto it : s)out << it <<" ";
+    return out << endl;
+}ostream& operator<<(ostream& out, const multiset<long long>& s) {
     for(auto it : s)out << it <<" ";
     return out << endl;
 }
