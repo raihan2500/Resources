@@ -1,21 +1,23 @@
+#define cnl  clog << '\n'
 #define db(val) #val": " << (val)
 #define print_op(...) ostream& operator<<(ostream& out, const __VA_ARGS__& u)
 #define CONCAT_(x, y) x##y
+
+#define space setw(__db_level * 2) << setfill(' ') << "" << setw(0)
+
 #define CONCAT(x, y) CONCAT_(x, y)
-#   define clog cerr << setw(__db_level * 2) << setfill(' ') << "" << setw(0)
-#   define DB() debug_block CONCAT(dbbl, __LINE__)
-    int __db_level = 0;
-    struct debug_block {
-        debug_block() { clog << "{" << endl; ++__db_level; }
-        ~debug_block() { --__db_level; clog << "}" << endl; }
-    };
+#define clog cerr << space 
+
+#define NB debug_block CONCAT(debug_block_level, __LINE__)
+int __db_level = 0;
+struct debug_block {
+    debug_block() { clog << "{" << endl; ++__db_level; }
+    ~debug_block() { --__db_level; clog << "}" << endl; }
+};
 
 
 //Vector
 ostream& operator<<(ostream& out, const vector<int>& v) {
-    for(auto it : v)out << it <<" ";
-    return out << endl;
-}ostream& operator<<(ostream& out, const vector<long long>& v) {
     for(auto it : v)out << it <<" ";
     return out << endl;
 }
@@ -33,9 +35,6 @@ ostream& operator<<(ostream& out, const vector<string>& v) {
 ostream& operator<<(ostream& out, const set<int>& s) {
     for(auto it : s)out << it <<" ";
     return out << endl;
-}ostream& operator<<(ostream& out, const set<long long>& s) {
-    for(auto it : s)out << it <<" ";
-    return out << endl;
 }
 ostream& operator<<(ostream& out, const set<double>& s) {
     for(auto it : s)out << it <<" ";
@@ -49,9 +48,6 @@ ostream& operator<<(ostream& out, const set<string>& s) {
 
 //Multiset
 ostream& operator<<(ostream& out, const multiset<int>& s) {
-    for(auto it : s)out << it <<" ";
-    return out << endl;
-}ostream& operator<<(ostream& out, const multiset<long long>& s) {
     for(auto it : s)out << it <<" ";
     return out << endl;
 }
@@ -72,10 +68,11 @@ template<class U, class V> print_op(pair<U, V>) {
 template<class Con, class = decltype(begin(declval<Con>()))>
 typename enable_if<!is_same<Con, string>::value, ostream&>::type
 operator<<(ostream& out, const Con& con) { 
-    out <<"\n";
-    for (auto beg = con.begin(), it = beg; it != con.end(); ++it)
-        out << (it == beg ? "" : "") << *it;
-    return out << "";
+    out << '\n';
+    for (auto beg = con.begin(), it = beg; it != con.end(); ++it){
+        out << space << *it;
+    }
+    return out;
 }
 
 

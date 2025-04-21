@@ -1,36 +1,31 @@
 #include<bits/stdc++.h>
-#include<ext/pb_ds/tree_policy.hpp>
-#include<ext/pb_ds/assoc_container.hpp>
-
 using namespace std;
-using namespace __gnu_pbds;
 
-using u64 = uint64_t;
-using u128 = __uint128_t;
+//using u128 = __uint128_t;
+#define int                 long long
 
-#define int                long long
+#define endl                "\n"
+#define yes                 cout<<"YES\n"
+#define no                  cout<<"NO\n"
+#define nl                  cout<<"\n"
+#define cnl                 clog<<"\n"
 
-#define yes                cout<<"YES\n"
-#define no                 cout<<"NO\n"
-#define nl                 cout<<"\n"
-#define endl               "\n"
+#define lin(n)              int n;cin>>n;
+#define pr                  pair<int, int>
+#define vin                 vector<int>
+#define pp                  pop_back()
+#define pb(n)               push_back(n)
+#define ppfr(v)             v.erase(v.begin());
+#define all(x)              x.begin(),x.end()
 
-#define lin(n)             int n;cin>>n;
-#define vin                vector<int>
-#define pr                 pair<int, int>
-#define pb(n)              push_back(n)
-#define pp                 pop_back()
-#define ppfr(v)            v.erase(v.begin());
-#define all(x)             x.begin(),x.end()
-
-#define forn(i,e)          for(int i=0;i<e;i++)
-#define Forn(i,e)          for(int i=1;i<=e;i++)
-#define rforn(i,s)         for(int i=s-1;i>=0;i--)
-#define print(arr)         for(auto x: arr)cout<<x<<" ";nl;
-#define mprint(mp)         for(auto a : mp)cout<<a.first<<" "<<a.second<<endl;
-
-#define fast_in_out        ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
-template <typename T>      using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+#define forn(i,n)           for(int i = 0; i < n; i++)
+#define Forn(i,n)           for(int i = 1; i <= n; i++)
+#define rforn(i,n)          for(int i = n - 1; i >= 0; i--)
+#define print(arr)          for(auto x: arr)cout<<x<<" ";nl;
+#define mprint(mp)          for(auto a : mp)cout<<a.first<<" "<<a.second<<endl;
+                            
+mt19937                     rng(chrono::steady_clock::now().time_since_epoch().count());
+#define rng(x,y)            uniform_int_distribution<int>(x,y)(rng)
 
 namespace Pollard{
     #define int long long
@@ -165,40 +160,6 @@ namespace Pollard{
     }
 }
 
-class Dsu{
-    private:
-        int n;
-        vector<int> par, sz;
-        void make(){
-            for(int v = 1; v <= n; v++){
-                par[v] = v; 
-                sz[v] = 1;
-            }
-        }
-    public:
-        Dsu(int n){
-            this->n = n;
-            par = vector<int> (n + 1);
-            sz = vector<int> (n + 1);
-            make();
-        }
-        
-        int Find(int v){
-            if(par[v] == v)return v;
-            return par[v] = Find(par[v]);
-        }
-        void Union(int a, int b){
-            a = Find(a);
-            b = Find(b);
-
-            if(a != b){
-                if(sz[a] < sz[b])swap(a, b);
-                par[b] = a;
-                sz[a] += sz[b];
-            }
-        }
-};
-
 class SeiveAlgo{
     private:
         //Variables
@@ -299,3 +260,51 @@ class SeiveAlgo{
             }
         }
 };
+
+
+
+struct mint{
+    int x;
+    inline mint(int x = 0) : x(x % M){};
+    inline mint & operator = (int n){return x = n, *this;}
+    inline mint & operator += (mint a){return (x += a.x) >= M && (x -= M), *this;}
+    inline mint & operator -= (mint a){return (x -= a.x) < 0 && (x += M), *this;}
+    inline mint & operator *= (mint a){return x = (uint64_t) x * a.x % M, *this;}
+    inline mint & operator %= (mint a){return (x %= a.x), *this;}
+    inline mint & operator ++(int32_t){return (*this += 1), *this;}
+    inline mint & operator --(int32_t){return (*this -= 1), *this;}
+    inline mint & operator ++(){return (*this += 1), *this;}
+    inline mint & operator --(){return (*this -= 1), *this;}
+    inline mint & operator ^= (int p){
+        mint ans = 1, w = *this;
+        for(; p; p >>= 1, w *= w)if(p & 1)ans *= w;
+        return x = ans.x, *this;
+    };
+
+    inline mint & operator /= (mint a){return *this *= (a ^= (M - 2)); }
+    friend inline mint operator + (mint a, mint b){return a += b;}
+    friend inline mint operator - (mint a, mint b){return a -= b;}
+    friend inline mint operator * (mint a, mint b){return a *= b;}
+    friend inline mint operator / (mint a, mint b){return a /= b;}
+    friend inline mint operator % (mint a, mint b){return a %= b;}
+    friend inline mint operator ^ (mint a, mint b){return a ^= b.x;}
+    friend inline mint operator ^ (mint a, int b){return a ^= b;}
+    friend inline mint operator & (mint a, mint b){return a.x & b.x;}
+    friend inline mint operator | (mint a, mint b){return a.x | b.x;}
+
+    friend inline bool operator < (const mint &a, const mint &b){return a.x < b.x;}
+    friend inline bool operator > (const mint &a, const mint &b){return a.x > b.x;}
+    friend inline bool operator <= (const mint &a, const mint &b){return a.x <= b.x;}
+    friend inline bool operator >= (const mint &a, const mint &b){return a.x >= b.x;}
+    friend inline bool operator == (const mint &a, const mint &b){return a.x == b.x;}
+    friend inline bool operator != (const mint &a, const mint &b){return a.x != b.x;}
+    explicit operator bool() const { return x != 0; }
+
+
+    friend std::ostream& operator<<(std::ostream& os, mint const& a) {return os << a.x;}
+    friend std::istream& operator>>(std::istream &is, mint& a){
+        int y; is >> y; (y %= M) < 0 && (y += M); 
+        return a.x = y, is;        
+    }
+};
+
