@@ -11,7 +11,7 @@
 #define NB debug_block CONCAT(debug_block_level, __LINE__)
 int __db_level = 0;
 struct debug_block {
-    debug_block() { clog << "{" << endl; ++__db_level; }
+    debug_block() { clog << "{ block: " << __db_level << endl; ++__db_level; }
     ~debug_block() { --__db_level; clog << "}" << endl; }
 };
 
