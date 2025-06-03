@@ -1,3 +1,14 @@
+#ifdef SUBLIME
+    #ifdef apnd
+        //Append hote thakbe output.error file a    
+        ofstream err("output.error", ios::app);
+    #else
+        ofstream err("output.error");
+    #endif    
+
+    #define cerr err
+#endif
+
 #define cnl  clog << '\n'
 #define db(val) #val": " << (val)
 #define print_op(...) ostream& operator<<(ostream& out, const __VA_ARGS__& u)
@@ -11,13 +22,17 @@
 #define NB debug_block CONCAT(debug_block_level, __LINE__)
 int __db_level = 0;
 struct debug_block {
-    debug_block() { clog << "{ block: " << __db_level << endl; ++__db_level; }
+    debug_block() { clog << "{" <<  endl; ++__db_level; }
     ~debug_block() { --__db_level; clog << "}" << endl; }
 };
 
 
 //Vector
 ostream& operator<<(ostream& out, const vector<int>& v) {
+    for(auto it : v)out << it <<" ";
+    return out << endl;
+}
+ostream& operator<<(ostream& out, const vector<int32_t>& v) {
     for(auto it : v)out << it <<" ";
     return out << endl;
 }
