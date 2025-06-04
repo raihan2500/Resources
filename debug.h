@@ -27,53 +27,149 @@ struct debug_block {
 };
 
 
-//Vector
-ostream& operator<<(ostream& out, const vector<int>& v) {
-    for(auto it : v)out << it <<" ";
-    return out << endl;
-}
-ostream& operator<<(ostream& out, const vector<int32_t>& v) {
-    for(auto it : v)out << it <<" ";
-    return out << endl;
-}
-ostream& operator<<(ostream& out, const vector<double>& v) {
-    for(auto it : v)out << it <<" ";
-    return out << endl;
-}
-ostream& operator<<(ostream& out, const vector<string>& v) {
-    for(auto it : v)out << it <<" ";
-    return out << endl;
-}
+namespace Segment{
+    /**************************VECTOR******************************************/
+    ostream& operator<<(ostream& out, const vector<int>& v) {
+        for(auto it : v)out << it <<" ";
+        return out << endl;
+    }
+    ostream& operator<<(ostream& out, const vector<char>& v) {
+        for(auto it : v)out << it <<" ";
+        return out << endl;
+    }
+    ostream& operator<<(ostream& out, const vector<int32_t>& v) {
+        for(auto it : v)out << it <<" ";
+        return out << endl;
+    }
+    ostream& operator<<(ostream& out, const vector<double>& v) {
+        for(auto it : v)out << it <<" ";
+        return out << endl;
+    }
+    ostream& operator<<(ostream& out, const vector<string>& v) {
+        for(auto it : v)out << it <<" ";
+        return out << endl;
+    }
 
 
-//Set
-ostream& operator<<(ostream& out, const set<int>& s) {
-    for(auto it : s)out << it <<" ";
-    return out << endl;
-}
-ostream& operator<<(ostream& out, const set<double>& s) {
-    for(auto it : s)out << it <<" ";
-    return out << endl;
-}
-ostream& operator<<(ostream& out, const set<string>& s) {
-    for(auto it : s)out << it <<" ";
-    return out << endl;
-}
+    /**************************SET******************************************/
+    ostream& operator<<(ostream& out, const set<int>& s) {
+        for(auto it : s)out << it <<" ";
+        return out << endl;
+    }
+    ostream& operator<<(ostream& out, const set<int32_t>& s) {
+        for(auto it : s)out << it <<" ";
+        return out << endl;
+    }
+    ostream& operator<<(ostream& out, const set<char>& s) {
+        for(auto it : s)out << it <<" ";
+        return out << endl;
+    }
+    ostream& operator<<(ostream& out, const set<double>& s) {
+        for(auto it : s)out << it <<" ";
+        return out << endl;
+    }
+    ostream& operator<<(ostream& out, const set<string>& s) {
+        for(auto it : s)out << it <<" ";
+        return out << endl;
+    }
 
 
-//Multiset
-ostream& operator<<(ostream& out, const multiset<int>& s) {
-    for(auto it : s)out << it <<" ";
-    return out << endl;
-}
-ostream& operator<<(ostream& out, const multiset<double>& s) {
-    for(auto it : s)out << it <<" ";
-    return out << endl;
-}
-ostream& operator<<(ostream& out, const multiset<string>& s) {
-    for(auto it : s)out << it <<" ";
-    return out << endl;
-}
+    /**************************UNORDERED_SET******************************************/
+    ostream& operator<<(ostream& out, const unordered_set<int>& s) {
+        for(auto it : s)out << it <<" ";
+        return out << endl;
+    }
+    ostream& operator<<(ostream& out, const unordered_set<int32_t>& s) {
+        for(auto it : s)out << it <<" ";
+        return out << endl;
+    }
+    ostream& operator<<(ostream& out, const unordered_set<char>& s) {
+        for(auto it : s)out << it <<" ";
+        return out << endl;
+    }
+    ostream& operator<<(ostream& out, const unordered_set<double>& s) {
+        for(auto it : s)out << it <<" ";
+        return out << endl; 
+    }
+    ostream& operator<<(ostream& out, const unordered_set<string>& s) {
+        for(auto it : s)out << it <<" ";
+        return out << endl;
+    }
+
+
+    /**************************MULTISET******************************************/
+    ostream& operator<<(ostream& out, const multiset<int>& s) {
+        for(auto it : s)out << it <<" ";
+        return out << endl;
+    }
+    ostream& operator<<(ostream& out, const multiset<int32_t>& s) {
+        for(auto it : s)out << it <<" ";
+        return out << endl;
+    }
+    ostream& operator<<(ostream& out, const multiset<char>& s) {
+        for(auto it : s)out << it <<" ";
+        return out << endl;
+    }
+    ostream& operator<<(ostream& out, const multiset<double>& s) {
+        for(auto it : s)out << it <<" ";
+        return out << endl; 
+    }
+    ostream& operator<<(ostream& out, const multiset<string>& s) {
+        for(auto it : s)out << it <<" ";
+        return out << endl;
+    }
+
+
+    /**************************UNORDERED_MULTISET******************************************/
+    ostream& operator<<(ostream& out, const unordered_multiset<int>& s) {
+        for(auto it : s)out << it <<" ";
+        return out << endl;
+    }
+    ostream& operator<<(ostream& out, const unordered_multiset<int32_t>& s) {
+        for(auto it : s)out << it <<" ";
+        return out << endl;
+    }
+    ostream& operator<<(ostream& out, const unordered_multiset<char>& s) {
+        for(auto it : s)out << it <<" ";
+        return out << endl;
+    }
+    ostream& operator<<(ostream& out, const unordered_multiset<double>& s) {
+        for(auto it : s)out << it <<" ";
+        return out << endl; 
+    }
+    ostream& operator<<(ostream& out, const unordered_multiset<string>& s) {
+        for(auto it : s)out << it <<" ";
+        return out << endl;
+    }
+
+    /**************************ORDERED_SET******************************************/
+    #ifdef ORDERED_SET_ON
+        ostream& operator<<(ostream& out, const ordered_set<int>& s) {
+            for(auto it : s)out << it <<" ";
+            return out << endl;
+        }
+        ostream& operator<<(ostream& out, const ordered_set<int32_t>& s) {
+            for(auto it : s)out << it <<" ";
+            return out << endl;
+        }
+        ostream& operator<<(ostream& out, const ordered_set<char>& s) {
+            for(auto it : s)out << it <<" ";
+            return out << endl;
+        }
+        ostream& operator<<(ostream& out, const ordered_set<double>& s) {
+            for(auto it : s)out << it <<" ";
+            return out << endl; 
+        }
+        ostream& operator<<(ostream& out, const ordered_set<string>& s) {
+            for(auto it : s)out << it <<" ";
+            return out << endl;
+        }
+
+    #endif
+};
+using namespace Segment;
+
+
 
 
 template<class U, class V> print_op(pair<U, V>) {
