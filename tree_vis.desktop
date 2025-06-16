@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Run Tree Visualizer
+Comment=Run the Python tree visualizer with virtual environment
+Exec=/usr/include/x86_64-linux-gnu/algo/run_tree.sh
+Icon=/home/raihan/Sublime_Text/tree.png
+Terminal=true
+Type=Application
+Categories=Utility;
