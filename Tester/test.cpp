@@ -45,4 +45,5 @@ int32_t main(){
         cout << duration.count() << " ms\n";
         cout.flush();
     }
+    system("rm run && rm solution.out && rm solution");
 }

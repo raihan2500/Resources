@@ -1,13 +1,15 @@
 from graphviz import Graph  # Digraph থেকে Graph এ পরিবর্তন
 
 def main():
-    n = int(input())
+    #n = int(input())
+    n, m = (map(int, input().split()))
     edges = []
-    for _ in range(n - 1):
+    for _ in range(m):
         u, v = map(int, input().split())
         edges.append((u, v))
 
     dot = Graph()  # Digraph() এর বদলে Graph()
+    
     for u, v in edges:
         dot.edge(str(u), str(v))
 
