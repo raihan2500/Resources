@@ -1,3 +1,10 @@
+#ifdef int 
+#else 
+    #define int32_t long long
+#endif
+//Main function *must be signed if int not defined (signed main(){})
+
+
 #ifdef SUBLIME
     #ifdef apnd
         //Append hote thakbe output.error file a    

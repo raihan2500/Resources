@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from graphviz import Graph  # Digraph থেকে Graph এ পরিবর্তন
 
 def main():
