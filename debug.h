@@ -6,7 +6,7 @@
 
 
 #ifdef SUBLIME
-    #ifdef apnd
+    #ifdef append
         //Append hote thakbe output.error file a    
         ofstream err("output.error", ios::app);
     #else
@@ -53,7 +53,8 @@ namespace Segment{
         return out << endl;
     }
     ostream& operator<<(ostream& out, const vector<string>& v) {
-        for(auto it : v)out << it <<" ";
+        out << "\n";
+        for(auto it : v)out << it <<"\n";
         return out << endl;
     }
 
@@ -75,8 +76,9 @@ namespace Segment{
         for(auto it : s)out << it <<" ";
         return out << endl;
     }
-    ostream& operator<<(ostream& out, const set<string>& s) {
-        for(auto it : s)out << it <<" ";
+    ostream& operator<<(ostream& out, const set<string>& v) {
+        out << "\n";
+        for(auto it : v)out << it <<"\n";
         return out << endl;
     }
 
@@ -98,8 +100,9 @@ namespace Segment{
         for(auto it : s)out << it <<" ";
         return out << endl; 
     }
-    ostream& operator<<(ostream& out, const unordered_set<string>& s) {
-        for(auto it : s)out << it <<" ";
+    ostream& operator<<(ostream& out, const unordered_set<string>& v) {
+        out << "\n";
+        for(auto it : v)out << it <<"\n";
         return out << endl;
     }
 
@@ -121,8 +124,9 @@ namespace Segment{
         for(auto it : s)out << it <<" ";
         return out << endl; 
     }
-    ostream& operator<<(ostream& out, const multiset<string>& s) {
-        for(auto it : s)out << it <<" ";
+    ostream& operator<<(ostream& out, const multiset<string>& v) {
+        out << "\n";
+        for(auto it : v)out << it <<"\n";
         return out << endl;
     }
 
@@ -144,8 +148,9 @@ namespace Segment{
         for(auto it : s)out << it <<" ";
         return out << endl; 
     }
-    ostream& operator<<(ostream& out, const unordered_multiset<string>& s) {
-        for(auto it : s)out << it <<" ";
+    ostream& operator<<(ostream& out, const unordered_multiset<string>& v) {
+        out << "\n";
+        for(auto it : v)out << it <<"\n";
         return out << endl;
     }
 
@@ -167,8 +172,9 @@ namespace Segment{
             for(auto it : s)out << it <<" ";
             return out << endl; 
         }
-        ostream& operator<<(ostream& out, const ordered_set<string>& s) {
-            for(auto it : s)out << it <<" ";
+        ostream& operator<<(ostream& out, const ordered_set<string>& v) {
+            out << "\n";
+            for(auto it : v)out << it <<"\n";
             return out << endl;
         }
 
