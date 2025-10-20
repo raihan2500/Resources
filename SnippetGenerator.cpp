@@ -1,9 +1,7 @@
-#include<vector>
-#include <string>
-#include<fstream>
-#include <sstream>
-#include <iostream>
+#include<bits/stdc++.h>
 using namespace std;
+
+string Title;
 
 void vsCode(const string& input) {
     stringstream ss(input);
@@ -15,7 +13,7 @@ void vsCode(const string& input) {
     while (getline(ss, line)) {
         codeLines.push_back(line);
     }
-
+    Title = title; //
     string output = "{\n";
     output += "  \"" + title + "\": {\n";
     output += "    \"prefix\": \"" + title + "\",\n";
@@ -40,17 +38,26 @@ void vsCode(const string& input) {
 
 
     #ifdef w
+        cout << output << endl;
+    #else
         string output_filename = "/home/raihan/.config/Code/User/snippets/";
         output_filename += title;
         output_filename += ".code-snippets";
 
         ofstream out(output_filename);
         out << output << endl;
-    #else
-        cout << output << endl;
+
+
+        //push in github
+        // string Add = "git add " + Title + ".code-snippets";
+        // string Commit = "git commit -m \"" + Title + "\"";
+
+        // string Cmd = "cd /home/raihan/.config/Code/User/snippets/ && " + Add + " && " + Commit;
+        // system(Cmd.c_str());
     #endif
 
 }
+
 
 void sublimeText(const string& input) {
     stringstream ss(input);
@@ -63,6 +70,7 @@ void sublimeText(const string& input) {
         content += line + "\n";
     }
 
+    Title = title; //
     string tabTrigger = title;
     for (auto& ch : tabTrigger) {
         if (!isalnum(ch)) ch = '_';
@@ -72,7 +80,7 @@ void sublimeText(const string& input) {
     string output;
     output += "<snippet>\n";
     output += "\t<content><![CDATA[\n";
-    output += content;
+    output += content  + "$1";
     output += "\n]]></content>\n";
     output += "\t<tabTrigger>" + tabTrigger + "</tabTrigger>\n";
     output += "\t<scope>source.c++</scope>\n";
@@ -80,13 +88,20 @@ void sublimeText(const string& input) {
 
 
     #ifdef w
+        cout << output << endl;
+    #else
         string output_filename = "/home/raihan/.config/sublime-text/Packages/User/";
         output_filename += title;
         output_filename += ".sublime-snippet";
         ofstream out(output_filename);
         out << output << endl;
-    #else
-        cout << output << endl;
+
+        //push in Github
+        string Add = "git add " + Title + ".sublime-snippet";
+        string Commit = "git commit -m \"" + Title + "\"";
+
+        string Cmd = "cd /home/raihan/.config/sublime-text/Packages/User/ && " + Add + " && " + Commit + " && git push -u origin main";
+        system(Cmd.c_str());
     #endif
 }
 
@@ -104,6 +119,7 @@ int main() {
 
     if(type == 2 or type != 1)vsCode(input);
     if(type == 1 or type != 2)sublimeText(input);
+
 
     return 0;
 }
