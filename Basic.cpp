@@ -18,8 +18,8 @@ using u128 = __uint128_t;
 #define _log2(n)    	63 - __builtin_clzll(n)
 #define pop_count(n)	__builtin_popcountll(n)
 
+ofstream err("output.error");
 #ifdef DEBUG
-	ofstream err("output.error");
 	#define clog err
 #else 
 	#define clog if(0)cerr
