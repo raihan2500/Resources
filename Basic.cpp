@@ -20,8 +20,10 @@ using u128 = __uint128_t;
 
 ofstream err("output.error");
 #ifdef DEBUG
-	#define clog err
+	#define db(v)	#v":" << (v) 
+	#define clog  err
 #else 
+	#define db(...) ""
 	#define clog if(0)cerr
 #endif
 template<class Con, class = decltype(begin(declval<Con>()))>
